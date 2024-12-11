@@ -1,47 +1,14 @@
-let container = document.querySelector('.container');
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
 
-
-
-const library = [];
-
-
-
-function Book(name,author,pages,rating){
-    this.name = name;
-    this.author=author;
-    this.pages=pages;
-    this.rating = rating;
+    this.info = function info() {
+        return "The book " + this.title + " by " + this.author + " has " + this.pages + " pages and has been " + this.read + ".";
+    };
 }
 
-function addBookToLibrary(book){
-    library.push(book);
-}
+const Carrie = new Book('Carrie', 'King', 345, 'read');
 
-let Carrie = new Book('Carrie','Stephen King',360,4.5);
-let Circe = new Book('Circe','Madeline Miller',424,4.2);
-let TheShining = new Book('The Shining','Stephen King',380,4.3);
-
-addBookToLibrary(Carrie);
-addBookToLibrary(Circe);
-addBookToLibrary(TheShining);
-
-function display(){
-
-
-    library.forEach(element=>{
-        let bookCard = document.createElement('div');
-        let deleteButton = document.createElement('button');
-        deleteButton.className = 'deleteButton';
-        deleteButton.innerHTML="Delete Book"
-        bookCard.className='bookCard';
-        bookCard.innerHTML = `
-            <h3>${element.name}</h3>
-            <p>Author: ${element.author}</p>
-            <p>Pages: ${element.pages}</p>
-            <p>Rating: ${element.rating}</p>
-        `;
-        bookCard.appendChild(deleteButton);
-        container.appendChild(bookCard);
-    });
-}
-display();
+console.log(Carrie.info());
