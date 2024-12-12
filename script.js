@@ -23,8 +23,13 @@ function addBookToLibrary(title,author,pages,status){
     console.log(book);
 }
 
-function bookStatus(){
-
+function changeBookStatus(book){
+    if(book.status==="read"){
+        book.status="not read";
+    }else if(book.status==='not read'){
+        book.status="read";
+    }
+    displayLibrary();
 }
 
 function displayLibrary(){
@@ -38,15 +43,22 @@ function displayLibrary(){
         <p><strong>Pages:</strong> ${myLibrary[i].pages}</p>
         <p><strong>Status:</strong> ${myLibrary[i].status}</p>
     `;
+        let changeStatusBtn = document.createElement('button');
+        changeStatusBtn.innerHTML = "Change status";
+        changeStatusBtn.addEventListener('click',()=>{
+            changeBookStatus(myLibrary[i]);
+            console.log(myLibrary[i]);
+        });
+
         let deleteBtn = document.createElement('button')
         deleteBtn.classList.add('delete-btn');
         deleteBtn.innerHTML = "Delete book";
-
         deleteBtn.addEventListener('click',()=>{
             deleteBook(i);
         })
         container.appendChild(card);
         card.appendChild(deleteBtn);
+        card.appendChild(changeStatusBtn)
     }
 }
 
