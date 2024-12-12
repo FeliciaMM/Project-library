@@ -4,27 +4,27 @@ const formDialog = document.querySelector('.new-book-form');
 const titleInput = document.querySelector('#book-name');
 const authorInput = document.querySelector('#book-author');
 const pagesInput = document.querySelector('#book-pages');
-const readInput = document.querySelector('#book-read');
+const statusInput = document.querySelector('#book-status');
 const confirmBtn =document.querySelector('.confirm-btn');
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.status = status;
 }
 
 
-function addBookToLibrary(title,author,pages,read){
-    const book= new Book(title,author,pages,read);
+function addBookToLibrary(title,author,pages,status){
+    const book= new Book(title,author,pages,status);
     myLibrary.push(book);    
     console.log(book);
 }
 
-function readBook(){
-    
+function bookStatus(){
+
 }
 
 function displayLibrary(){
@@ -36,7 +36,7 @@ function displayLibrary(){
         card.innerHTML= `<p><strong>Title:</strong> ${myLibrary[i].title}</p>
         <p><strong>Author:</strong> ${myLibrary[i].author}</p>
         <p><strong>Pages:</strong> ${myLibrary[i].pages}</p>
-        <p><strong>Read:</strong> ${myLibrary[i].read}</p>
+        <p><strong>Status:</strong> ${myLibrary[i].status}</p>
     `;
         let deleteBtn = document.createElement('button')
         deleteBtn.classList.add('delete-btn');
@@ -65,8 +65,8 @@ confirmBtn.addEventListener('click',(e)=>{
     let newAuthor = authorInput.value;
     let newTitle = titleInput.value;
     let newPages = pagesInput.value;
-    let newRead = readInput.value;
-    addBookToLibrary(newTitle,newAuthor,newPages, newRead);
+    let newStatus = statusInput.value;
+    addBookToLibrary(newTitle,newAuthor,newPages, newStatus);
     displayLibrary();
 })
 
