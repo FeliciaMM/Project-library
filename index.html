@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="container">
+        
+    </div>
+    <dialog class="new-book-form">
+        <form>
+            <p>
+                <label for="book-name">Book Title</label>
+                <input type="text" name="book-name" id="book-name">
+            </p>
+            <p>
+                <label for="book-author">Book Author</label>
+                <input type="text" name="book-author" id="book-author">
+            </p>
+            <p>
+                <label for="book-pages">Number of pages</label>
+                <input type="number" name="book-pages" id="book-pages">
+            </p>
+            <p>
+                <label for="book-read">Read/Not Read</label>
+                <input type="text" name="book-read" id="book-read">
+            </p>
+            <p>
+                <button class="confirm-btn">Confirm</button>
+            </p>
+        </form>
+    </dialog>
+   
+    <button class="add-book-btn" autofocus>Add book</button>
 </body>
 </html>
